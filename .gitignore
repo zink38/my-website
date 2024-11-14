@@ -1,2 +1,3 @@
 .vscode/launch.json
-
+projects/demos/searchPathfinding/*
+projects/demos/searchConnectFour/*
