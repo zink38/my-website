@@ -57,7 +57,7 @@ a:hover, a:focus {
     display: flex;
     justify-content: space-between;
     margin: 0px;
-    background-image: url("misty-banner.jpg");
+    background-image: url("images/misty-banner.jpg");
     background-repeat: no-repeat;
 }
 
