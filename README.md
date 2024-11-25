@@ -1,0 +1,1 @@
+Landing page of my website. Meant to serve as a portal to my projects 
