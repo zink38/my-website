@@ -1,222 +1,489 @@
-<!-- https://youtu.be/dX8396ZmSPk?t=13285 -->
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Personal Website for Keegan Churchill">
-        <meta name="keywords" content="blog, programming">
-        <meta name="author" content="Keegan Churchill">
-        <meta name="robots" content="index, follow">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <title>
-           Keegan Churchill
-        </title>
-        <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../snipets/base.css">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div id="navbar">
-            <!-- Left side logo-->
-            <div>
-                Keegan Churchill
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Keegan Churchill's Website" />
+    <meta name="author" content="Keegan Churchill, powered by bootstrap-5" />
+    <!-- <meta name="generator" content="Hugo 0.122.0"> -->
+    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:version" content="0.1" />
+    <title>Keegan Churchill</title>
+    <!-- <link rel="canonical" href="https://getbootstrap.com/"> -->
+    <!-- <link rel="preconnect" href="https://AK7KMZKZHQ-dsn.algolia.net" crossorigin> -->
+    <!-- source for dark mode, light mode, auto toggle -->
+    <script src="../snipets/color-modes.js"></script>
+    <!-- Bootstrap 5.3 cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link href="../snipets/base.css" rel="stylesheet" />
+    <!-- Favicons -->
+    <!-- <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+        <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+        <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+        <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+        <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+        <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico"> -->
+    <meta name="theme-color" content="#712cf9" />
+    <!-- <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@getbootstrap">
+        <meta name="twitter:creator" content="@getbootstrap">
+        <meta name="twitter:title" content="Bootstrap">
+        <meta name="twitter:description" content="Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins.">
+        <meta name="twitter:image" content="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-social.png"> -->
+    <!-- <meta property="og:url" content="https://getbootstrap.com/">
+        <meta property="og:title" content="Bootstrap">
+        <meta property="og:description" content="Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins.">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-social.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="2000">
+        <meta property="og:image:height" content="1000"> -->
+  </head>
+  <body>
+    <!-- <div class="skippy visually-hidden-focusable overflow-hidden">
+            <div class="container-xl">
+                <a class="d-inline-flex p-2 m-1" href="#content">Skip to main content</a>
             </div>
-            <!-- Right side menu -->
-            <div id="top-menu">
-                <a href="index.html">home</a>
-                <a href="../projects/index.html">projects</a>
-                <a href="boxmodel.html">photos</a>
-                <a href="../blog/index.html">blog</a>
-            </div>
-        </div> 
-        <img id= "banner" src="../../images/grandCanyonPose.jpg" alt="Picture of Keegan in Grand Canyon">
-        <h1>
-            About Me
-        </h1>
-        <div id="about">
-            <div id="description">
-                <p>  
-                    Hi, I’m Keegan Churchill—a computer scientist based in Mount Pearl, Newfoundland, with a passion for designing smart and efficient systems. My journey into programming began in high school, where I was amazed by how a few well-written instructions could bring computers to life. 
-                </p>
-                <p>
-                    My love for video games and problem-solving led me to merge these worlds, culminating in one of my proudest achievements: developing a StarCraft: Brood War bot using BWAPI. Watching projects incrementally improve, iterating toward efficiency and success, is something I find deeply satisfying. Whether it’s AI, game development, or solving real-world problems, I thrive on turning ideas into impactful solutions.  
-                </p>
-                <div>
-                    <ol>
-                        <li>
-                            <a href="https://google.com" target="_blank">
-                                Jovian Full Stack Developer Bootcamp
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://google.com" target="_blank">
-                                Jovian Data Science Bootcamp
-                            </a>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-            <div id="team">
-                <img id="team-image" src="../../images/team.jpg" alt="team picture">
-            </div>
-        </div>
-        
-        <h2>Job Opportunities</h2>
+        </div> -->
 
-        <div id="jobs">
-            <div id = "jobs-list">
-                <div class="job">
-                    <div class="job-title">Frontend Developer</div>
-                    <div class="job-detail">Bengaluru, India</div>
-                    <div class="job-detail">₹12,00,000</div>
-                    <div class="job-detail">Posted Mar 3, 2023</div>
-                </div>
-                <div class="job">
-                    <div class="job-title">Frontend Developer</div>
-                    <div class="job-detail">Bengaluru, India</div>
-                    <div class="job-detail">₹12,00,000</div>
-                    <div class="job-detail">Posted Mar 3, 2023</div>
-                </div>
-                <div class="job">
-                    <div class="job-title">Full-Stack Developer</div>
-                    <div class="job-detail">New Delhi, India</div>
-                    <div class="job-detail">₹15,00,000</div>
-                    <div class="job-detail">Posted Feb 1, 2023</div>
-                </div>
-                <div class="job">
-                    <div class="job-title">Data Scientist</div>
-                    <div class="job-detail">San Francisco, USA</div>
-                    <div class="job-detail">$175 000</div>
-                    <div class="job-detail">Posted Dec 22, 2022</div>
-                </div>
-                <div class="job">
-                    <div class="job-title">Machine Learning Engineer</div>
-                    <div class="job-detail">Remote</div>
-                    <div class="job-detail">$80 000</div>
-                    <div class="job-detail">Posted Sep 19, 2022</div>
-                </div>
-            </div>
-           <table id="jobs-table">
-            <tr class="jobs-header-row">
-                <th rowspan="2">Job Title</th>
-                <th colspan="2">Location</th>
-                <th rowspan="2">Salary</th>
-                <th rowspan="2">Posted On</th>
-            </tr>
-            <tr class="jobs-header-row">
-                <th>City</th>
-                <th>Country</th>
-            </tr>
-            <tr class="jobs-data-row">
-                <td>Frontend Developer</td>
-                <td>Bengaluru</td>
-                <td>India</td>
-                <td>₹12,00,000</td>
-                <td>Mar 3, 2023</td>
-            </tr>
-            <tr class="jobs-data-row">
-                <td>Full Stack Developer</td>
-                <td>New Delhi</td>
-                <td>India</td>
-                <td>₹15,00,000</td>
-                <td>Feb 1, 2023</td>
-            </tr>
-            <tr class="jobs-data-row">
-                <td>Data Scientist</td>
-                <td>San Francisco</td>
-                <td>USA</td>
-                <td>$175,000</td>
-                <td>Dec 22, 2022</td>
-            </tr>
-            <tr class="jobs-data-row">
-                <td>Machine Learning Engineer</td>
-                <td colspan="2">Remote</td>
-                <td>$80,000</td>
-                <td>Sep 19, 2022</td>      
-            </tr>
-           </table>
-        </div>
-        <div id="application">
-            <h2>Submit Your Application</h2>
-            <form id="application-form" 
-                  action="https://formbold.com/s/9BAPd" 
-                  method="POST"
-                  enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <br>
-                    <input type="text" id="name" name="Full Name" placeholder="Jane Doe" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <br>
-                    <input type="email" id="email" placeholder="1234@mail.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <br>
-                    <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8901" required>
-                </div>
-                <div class="form-group">
-                    <label for="dob">Date Of Birth</label>
-                    <br>
-                    <input type="date" id="dob" name="dob" required>
-                </div>
-                <div class="form-group">
-                    <label for="position">Position Applying</label>
-                    <br>
-                    <select id="position" name="Position Applied" required>
-                        <option value="">Select Position</option>
-                        <option value="frontend">Frontend Developer</option>
-                        <option value="fullstack">Full Stack Developer</option>
-                        <option value="data scientist">Data Scientist</option>
-                        <option value="ml engineer">Machine Learning Enginerr</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="resume">Upload Resume</label>
-                    <br>
-                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
-                </div>
-                <div class="form-group">
-                    <label for="coverletter">Cover Letter</label><br>
-                    <textarea id="coverletter" name="coverletter" rows="5" placeholder="Explain what makes you suitable for the job.."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="terms">
-                        <input type="checkbox" id="terms" name="terms" required>
-                        I agree to the terms and conditions
-                    </label>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Submit Application">
-                </div>
-            </form>
-        </div>
-        <div id="footer">
-            <ul id="footer-links">
+    <nav
+      class="navbar sticky-top navbar-expand-lg bg-body-tertiary"
+      aria-label="Main navigation"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Keegan Churchill</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+            <li class="nav-item col-6 col-lg-auto">
+              <a
+                class="nav-link py-2 px-0 px-lg-2"
+                href=""
+                target="_blank"
+                rel="noopener"
+              >
+                <svg class="bi me-2 opacity-50" role="img">
+                  <title>Facebook</title>
+                  <use href="../snipets/symbols.svg#facebook"></use>
+                </svg>
+                <small class="d-lg-none ms-2">Facebook</small>
+              </a>
+            </li>
+            <li class="nav-item col-6 col-lg-auto">
+              <a
+                class="nav-link py-2 px-0 px-lg-2"
+                href=""
+                target="_blank"
+                rel="noopener"
+              >
+                <svg class="bi me-2 opacity-50" role="img">
+                  <title>GitHub</title>
+                  <use href="../snipets/symbols.svg#github"></use>
+                </svg>
+                <small class="d-lg-none ms-2">GitHub</small>
+              </a>
+            </li>
+            <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                <hr class="d-lg-none my-2 text-white-50">
+            </li>
+            <li class="nav-item dropdown">
+              <button
+                class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
+                id="kc-themes"
+                type="button"
+                aria-expanded="false"
+                data-bs-toggle="dropdown"
+                data-bs-display="static"
+                aria-label="Toggle theme (auto)"
+              >
+                <svg class="bi my-1 theme-icon-active">
+                  <use href="../snipets/symbols.svg#circle-half"></use>
+                </svg>
+                <span class="d-lg-none ms-2" id="kc-themes-text"
+                  >Toggle theme</span
+                >
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="kc-themes-text"
+              >
                 <li>
-                    <a href="https://google.com" target="_blank">
-                        Courses
-                    </a>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="light"
+                    aria-pressed="false"
+                  >
+                    <svg class="bi me-2 opacity-50">
+                      <use href="../snipets/symbols.svg#sun-fill"></use>
+                    </svg>
+                    Light
+
+                    <svg class="bi ms-auto d-none">
+                      <use href="../snipets/symbols.svg#check2"></use>
+                    </svg>
+                  </button>
                 </li>
                 <li>
-                    <a href="https://google.com" target="_blank">
-                        Programs
-                    </a>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center"
+                    data-bs-theme-value="dark"
+                    aria-pressed="false"
+                  >
+                    <svg class="bi me-2 opacity-50">
+                      <use href="../snipets/symbols.svg#moon-stars-fill"></use>
+                    </svg>
+                    Dark
+
+                    <svg class="bi ms-auto d-none">
+                      <use href="../snipets/symbols.svg#check2"></use>
+                    </svg>
+                  </button>
                 </li>
                 <li>
-                    <a href="https://google.com" target="_blank">
-                        YouTube
-                    </a>
+                  <button
+                    type="button"
+                    class="dropdown-item d-flex align-items-center active"
+                    data-bs-theme-value="auto"
+                    aria-pressed="true"
+                  >
+                    <svg class="bi me-2 opacity-50">
+                      <use href="../snipets/symbols.svg#circle-half"></use>
+                    </svg>
+                    Auto
+
+                    <svg class="bi ms-auto d-none">
+                      <use href="../snipets/symbols.svg#check2"></use>
+                    </svg>
+                  </button>
                 </li>
-            </ul>
-            <span class="copyright">©2024 Keegan Churchill</span>
+              </ul>
+            </li>
+          </ul>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    </body>    
+      </div>
+    </nav>
+
+    <main>
+      <img
+        id="banner"
+        src="../../images/grandCanyonPose.jpg"
+        alt="Picture of Keegan in Grand Canyon"
+      />
+      <h1>About Me</h1>
+      <div id="about">
+        <div id="description">
+          <p>
+            Hi, I’m Keegan Churchill—a computer scientist based in Mount Pearl,
+            Newfoundland, with a passion for designing smart and efficient
+            systems. My journey into programming began in high school, where I
+            was amazed by how a few well-written instructions could bring
+            computers to life.
+          </p>
+          <p>
+            My love for video games and problem-solving led me to merge these
+            worlds, culminating in one of my proudest achievements: developing a
+            StarCraft: Brood War bot using BWAPI. Watching projects
+            incrementally improve, iterating toward efficiency and success, is
+            something I find deeply satisfying. Whether it’s AI, game
+            development, or solving real-world problems, I thrive on turning
+            ideas into impactful solutions.
+          </p>
+          <div>
+            <ol>
+              <li>
+                <a href="https://google.com" target="_blank">
+                  Jovian Full Stack Developer Bootcamp
+                </a>
+              </li>
+              <li>
+                <a href="https://google.com" target="_blank">
+                  Jovian Data Science Bootcamp
+                </a>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div id="team">
+          <img id="team-image" src="../../images/team.jpg" alt="team picture" />
+        </div>
+      </div>
+
+      <h2>Job Opportunities</h2>
+
+      <div id="jobs">
+        <div id="jobs-list">
+          <div class="job">
+            <div class="job-title">Frontend Developer</div>
+            <div class="job-detail">Bengaluru, India</div>
+            <div class="job-detail">₹12,00,000</div>
+            <div class="job-detail">Posted Mar 3, 2023</div>
+          </div>
+          <div class="job">
+            <div class="job-title">Frontend Developer</div>
+            <div class="job-detail">Bengaluru, India</div>
+            <div class="job-detail">₹12,00,000</div>
+            <div class="job-detail">Posted Mar 3, 2023</div>
+          </div>
+          <div class="job">
+            <div class="job-title">Full-Stack Developer</div>
+            <div class="job-detail">New Delhi, India</div>
+            <div class="job-detail">₹15,00,000</div>
+            <div class="job-detail">Posted Feb 1, 2023</div>
+          </div>
+          <div class="job">
+            <div class="job-title">Data Scientist</div>
+            <div class="job-detail">San Francisco, USA</div>
+            <div class="job-detail">$175 000</div>
+            <div class="job-detail">Posted Dec 22, 2022</div>
+          </div>
+          <div class="job">
+            <div class="job-title">Machine Learning Engineer</div>
+            <div class="job-detail">Remote</div>
+            <div class="job-detail">$80 000</div>
+            <div class="job-detail">Posted Sep 19, 2022</div>
+          </div>
+        </div>
+        <table id="jobs-table">
+          <tr class="jobs-header-row">
+            <th rowspan="2">Job Title</th>
+            <th colspan="2">Location</th>
+            <th rowspan="2">Salary</th>
+            <th rowspan="2">Posted On</th>
+          </tr>
+          <tr class="jobs-header-row">
+            <th>City</th>
+            <th>Country</th>
+          </tr>
+          <tr class="jobs-data-row">
+            <td>Frontend Developer</td>
+            <td>Bengaluru</td>
+            <td>India</td>
+            <td>₹12,00,000</td>
+            <td>Mar 3, 2023</td>
+          </tr>
+          <tr class="jobs-data-row">
+            <td>Full Stack Developer</td>
+            <td>New Delhi</td>
+            <td>India</td>
+            <td>₹15,00,000</td>
+            <td>Feb 1, 2023</td>
+          </tr>
+          <tr class="jobs-data-row">
+            <td>Data Scientist</td>
+            <td>San Francisco</td>
+            <td>USA</td>
+            <td>$175,000</td>
+            <td>Dec 22, 2022</td>
+          </tr>
+          <tr class="jobs-data-row">
+            <td>Machine Learning Engineer</td>
+            <td colspan="2">Remote</td>
+            <td>$80,000</td>
+            <td>Sep 19, 2022</td>
+          </tr>
+        </table>
+      </div>
+      <div id="application">
+        <h2>Submit Your Application</h2>
+        <form
+          id="application-form"
+          action="https://formbold.com/s/9BAPd"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <br />
+            <input
+              type="text"
+              id="name"
+              name="Full Name"
+              placeholder="Jane Doe"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <br />
+            <input
+              type="email"
+              id="email"
+              placeholder="1234@mail.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <br />
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+1 234 567 8901"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="dob">Date Of Birth</label>
+            <br />
+            <input type="date" id="dob" name="dob" required />
+          </div>
+          <div class="form-group">
+            <label for="position">Position Applying</label>
+            <br />
+            <select id="position" name="Position Applied" required>
+              <option value="">Select Position</option>
+              <option value="frontend">Frontend Developer</option>
+              <option value="fullstack">Full Stack Developer</option>
+              <option value="data scientist">Data Scientist</option>
+              <option value="ml engineer">Machine Learning Enginerr</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="resume">Upload Resume</label>
+            <br />
+            <input
+              type="file"
+              id="resume"
+              name="resume"
+              accept=".pdf,.doc,.docx"
+            />
+          </div>
+          <div class="form-group">
+            <label for="coverletter">Cover Letter</label><br />
+            <textarea
+              id="coverletter"
+              name="coverletter"
+              rows="5"
+              placeholder="Explain what makes you suitable for the job.."
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="terms">
+              <input type="checkbox" id="terms" name="terms" required />
+              I agree to the terms and conditions
+            </label>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Submit Application" />
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <div id="footer">
+        <ul id="footer-links">
+          <li>
+            <a href="https://google.com" target="_blank"> Courses </a>
+          </li>
+          <li>
+            <a href="https://google.com" target="_blank"> Programs </a>
+          </li>
+          <li>
+            <a href="https://google.com" target="_blank"> YouTube </a>
+          </li>
+        </ul>
+        <span class="copyright">©2024 Keegan Churchill</span>
+      </div>
+    </footer>
+
+    <!-- bootstrap js cdn -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
+<!-- https://youtu.be/dX8396ZmSPk?t=13285 -->
+<!-- <!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Personal Website for Keegan Churchill" />
+    <meta name="keywords" content="blog, programming" />
+    <meta name="author" content="Keegan Churchill" />
+    <meta name="robots" content="index, follow" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <title>Keegan Churchill</title>
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../snipets/base.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src = "main.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Keegan Churchill</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../projects/index.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../blog/index.html">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
