@@ -21,6 +21,7 @@
       crossorigin="anonymous"
     />
     <link href="../snipets/base.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
     <!-- Favicons -->
     <!-- <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
         <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -52,7 +53,7 @@
         </div> -->
 
     <nav
-      class="navbar sticky-top navbar-expand-lg bg-body-tertiary"
+      class="navbar sticky-top navbar-expand-lg bg-body-tertiary bg-gradient"
       aria-label="Main navigation"
     >
       <div class="container-fluid">
@@ -113,8 +114,8 @@
               </a>
             </li>
             <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
-                <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
-                <hr class="d-lg-none my-2 text-white-50">
+              <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+              <hr class="d-lg-none my-2 text-white-50" />
             </li>
             <li class="nav-item dropdown">
               <button
@@ -197,50 +198,67 @@
 
     <main>
       <img
-        id="banner"
         src="../../images/grandCanyonPose.jpg"
+        class="bg-image img-fluid"
         alt="Picture of Keegan in Grand Canyon"
       />
-      <h1>About Me</h1>
-      <div id="about">
-        <div id="description">
-          <p>
-            Hi, I’m Keegan Churchill—a computer scientist based in Mount Pearl,
-            Newfoundland, with a passion for designing smart and efficient
-            systems. My journey into programming began in high school, where I
-            was amazed by how a few well-written instructions could bring
-            computers to life.
-          </p>
-          <p>
-            My love for video games and problem-solving led me to merge these
-            worlds, culminating in one of my proudest achievements: developing a
-            StarCraft: Brood War bot using BWAPI. Watching projects
-            incrementally improve, iterating toward efficiency and success, is
-            something I find deeply satisfying. Whether it’s AI, game
-            development, or solving real-world problems, I thrive on turning
-            ideas into impactful solutions.
-          </p>
-          <div>
-            <ol>
-              <li>
-                <a href="https://google.com" target="_blank">
-                  Jovian Full Stack Developer Bootcamp
-                </a>
-              </li>
-              <li>
-                <a href="https://google.com" target="_blank">
-                  Jovian Data Science Bootcamp
-                </a>
-              </li>
-            </ol>
+
+      <div class="container col-xxl-8 px-4 py-5" >
+        
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <img
+              src="../../images/team.jpg"
+              class="d-block mx-lg-auto img-fluid"
+              alt="Bootstrap Themes"
+              width="700"
+              height="500"
+              loading="lazy"
+            />
           </div>
-        </div>
-        <div id="team">
-          <img id="team-image" src="../../images/team.jpg" alt="team picture" />
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+              About Me
+            </h1>
+            <p class="lead">
+              Hi, I’m Keegan Churchill—a computer scientist based in Mount
+              Pearl, Newfoundland, with a passion for designing smart and
+              efficient systems. My journey into programming began in high
+              school, where I was amazed by how a few well-written instructions
+              could bring computers to life. My love for video games and
+              problem-solving led me to merge these worlds, culminating in one
+              of my proudest achievements: developing a StarCraft: Brood War bot
+              using BWAPI. Watching projects incrementally improve, iterating
+              toward efficiency and success, is something I find deeply
+              satisfying. Whether it’s AI, game development, or solving
+              real-world problems, I thrive on turning ideas into impactful
+              solutions.
+            </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <a href="https://google.com" target="_blank">
+                Jovian Full Stack Developer Bootcamp
+              </a>
+              <a href="https://google.com" target="_blank">
+                Jovian Data Science Bootcamp
+              </a>
+              <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+              <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button> -->
+            </div>
+          </div>
         </div>
       </div>
 
       <h2>Job Opportunities</h2>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
 
       <div id="jobs">
         <div id="jobs-list">
