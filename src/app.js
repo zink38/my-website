@@ -5,10 +5,31 @@ const express = require("express");
 const path = require("path");
 const mustacheExpress = require("mustache-express");
 const JOBS = require("./jobs");
+const mysql = require("mysql2");
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "Admin1",
+  password: "Thirtyeight38",
+  database: "Jobs",
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+  idleTimeout: 30000,
+});
+
+db.connect((err) => {
+  if (err) {
+    console.error("Error connecting to MySQL:", err);
+    return;
+  }
+  console.log("Connected to MySQL database");
+});
 
 const app = express();
 
-app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 //express mustache config
@@ -17,17 +38,44 @@ app.set("view engine", "mustache");
 app.engine("mustache", mustacheExpress());
 
 app.get("/", (req, res) => {
-  res.render("index", { jobs: JOBS });
+  const query =
+    'SELECT id, title, location, salary, posted AS posted FROM Jobs';
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Error fetching jobs:", err);
+      return res.status(500).send("An error occurred");
+    }
+    res.render("index", { jobs: results });
+  });
 });
 
-app.get("/jobs/:id", (req, res) => {
-  const id = req.params.id;
-  const matchedJob = JOBS.find((job) => job.id.toString() === id);
-  res.render("job", { job: matchedJob });
+app.get('/jobs/:id', (req, res) => {
+  const jobId = req.params.id;
+  const query = 'SELECT * FROM Jobs WHERE id = ?';
+
+  db.query(query, [jobId], (err, results) => {
+    if (err) {
+      console.error('Error fetching job:', err);
+      return res.status(500).send('An error occurred');
+    }
+
+    if (results.length === 0) {
+      return res.status(404).send('Job not found');
+    }
+
+    res.render('job', { job: results[0] });
+  });
+});
+
+
+app.post("/", (req, res) => {
+  const { title, location, salary, posted } = req.body;
+  if (title && location && salary && posted) {
+  }
 });
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   host: "smtp.gmail.com",
   port: 587,
   secure: false,
@@ -35,6 +83,26 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_ID,
     pass: process.env.EMAIL_PASSWORD,
   },
+});
+
+app.post("/add-job", (req, res) => {
+  const { title, location, salary, posted } = req.body;
+  console.log(req.body);
+  if (!title || !location || !salary || !posted) {
+    return res.status(400).send("All fields are required");
+  }
+
+  const query =
+    "INSERT INTO Jobs (title, location, salary, posted) VALUES (?, ?, ?, ?)";
+  const values = [title, location, salary, posted];
+
+  db.query(query, values, (err, result) => {
+    if (err) {
+      console.error("Error inserting job:", err);
+      return res.status(500).send("An error occurred");
+    }
+    res.send("Job added successfully");
+  });
 });
 
 app.post("/jobs/:id/apply", (req, res) => {
@@ -62,7 +130,7 @@ app.post("/jobs/:id/apply", (req, res) => {
       console.log(error);
       res.status(500).send("Error sending email");
     } else {
-      res.status(200).render('applicationStatus');
+      res.status(200).render("applicationStatus");
     }
   });
 });
