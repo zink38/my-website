@@ -8,10 +8,10 @@ const JOBS = require("./jobs");
 const mysql = require("mysql2");
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "Admin1",
-  password: "Thirtyeight38",
-  database: "Jobs",
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DB,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
