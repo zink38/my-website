@@ -1,11 +1,18 @@
-require("dotenv").config();
-const nodemailer = require("nodemailer");
-const bodyparser = require("body-parser");
-const express = require("express");
-const path = require("path");
-const mustacheExpress = require("mustache-express");
-const JOBS = require("./jobs");
-const mysql = require("mysql2");
+import dotenv from "dotenv";
+import nodemailer from "nodemailer";
+import bodyparser from "body-parser";
+import express from "express";
+import path from "path";
+import { fileURLToPath } from 'url'; 
+import { dirname, join } from 'path';
+import mustacheExpress from "mustache-express";
+import mysql from "mysql2";
+
+// Load environment variables from .env file
+dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url); 
+const __dirname = dirname(__filename);
 
 const db = mysql.createConnection({
   host: process.env.MYSQL_HOST,
