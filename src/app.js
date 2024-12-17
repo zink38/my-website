@@ -12,6 +12,7 @@ const db = mysql.createConnection({
   user: process.env.MYSQL_USER,
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DB,
+  Port: process.env.MYSQL_PORT,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -39,7 +40,7 @@ app.engine("mustache", mustacheExpress());
 
 app.get("/", (req, res) => {
   const query =
-    'SELECT id, title, location, salary, posted AS posted FROM Jobs';
+    'SELECT id, title, location, salary, posted AS posted FROM jobs';
   db.query(query, (err, results) => {
     if (err) {
       console.error("Error fetching jobs:", err);
@@ -51,7 +52,7 @@ app.get("/", (req, res) => {
 
 app.get('/jobs/:id', (req, res) => {
   const jobId = req.params.id;
-  const query = 'SELECT * FROM Jobs WHERE id = ?';
+  const query = 'SELECT * FROM jobs WHERE id = ?';
 
   db.query(query, [jobId], (err, results) => {
     if (err) {
@@ -93,7 +94,7 @@ app.post("/add-job", (req, res) => {
   }
 
   const query =
-    "INSERT INTO Jobs (title, location, salary, posted) VALUES (?, ?, ?, ?)";
+    "INSERT INTO jobs (title, location, salary, posted) VALUES (?, ?, ?, ?)";
   const values = [title, location, salary, posted];
 
   db.query(query, values, (err, result) => {
