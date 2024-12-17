@@ -3,15 +3,15 @@ import nodemailer from "nodemailer";
 import bodyparser from "body-parser";
 import express from "express";
 import path from "path";
-import { fileURLToPath } from 'url'; 
-import { dirname } from 'path';
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 import mustacheExpress from "mustache-express";
 import mysql from "mysql2";
 
 // Load environment variables from .env file
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url); 
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const db = mysql.createConnection({
@@ -47,7 +47,7 @@ app.engine("mustache", mustacheExpress());
 
 app.get("/", (req, res) => {
   const query =
-    'SELECT id, title, location, salary, posted AS posted FROM jobs';
+    "SELECT id, title, location, salary, posted AS posted FROM jobs";
   db.query(query, (err, results) => {
     if (err) {
       console.error("Error fetching jobs:", err);
@@ -57,29 +57,22 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get('/jobs/:id', (req, res) => {
+app.get("/jobs/:id", (req, res) => {
   const jobId = req.params.id;
-  const query = 'SELECT * FROM jobs WHERE id = ?';
+  const query = "SELECT * FROM jobs WHERE id = ?";
 
   db.query(query, [jobId], (err, results) => {
     if (err) {
-      console.error('Error fetching job:', err);
-      return res.status(500).send('An error occurred');
+      console.error("Error fetching job:", err);
+      return res.status(500).send("An error occurred");
     }
 
     if (results.length === 0) {
-      return res.status(404).send('Job not found');
+      return res.status(404).send("Job not found");
     }
 
-    res.render('job', { job: results[0] });
+    res.render("job", { job: results[0] });
   });
-});
-
-
-app.post("/", (req, res) => {
-  const { title, location, salary, posted } = req.body;
-  if (title && location && salary && posted) {
-  }
 });
 
 const transporter = nodemailer.createTransport({
@@ -114,32 +107,45 @@ app.post("/add-job", (req, res) => {
 });
 
 app.post("/jobs/:id/apply", (req, res) => {
-  const { name, email, phone, dob, position, coverletter } = req.body;
-  const id = req.params.id;
-  const matchedJob = JOBS.find((job) => job.id.toString() === id);
+  const { fullname, email, phone, dob, coverletter } = req.body;
+  const jobId = req.params.id;
+  const query = "SELECT * FROM jobs WHERE id = ?";
 
-  const mailOptions = {
-    from: process.env.EMAIL_ID,
-    to: process.env.EMAIL_ID,
-    subject: `New Application for ${matchedJob.title}`,
-    html: `
-        <p><strong> Name:<\strong> ${name}</p>
-        <p><strong> Email:<\strong> ${email}</p>
-        <p><strong> Phone:<\strong> ${phone}</p>
-        <p><strong> Date of Birth:<\strong> ${dob}</p>
-        <p><strong> Letter:<\strong> ${coverletter}</p>
-        `,
-  };
-
-  console.log(mailOptions);
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-      res.status(500).send("Error sending email");
-    } else {
-      res.status(200).render("applicationStatus");
+  db.query(query, [jobId], (err, results) => {
+    if (err) {
+      console.error("Error fetching job:", err);
+      return res.status(500).send("An error occurred");
     }
+
+    if (results.length === 0) {
+      return res.status(404).send("Job not found");
+    }
+
+    if (!fullname || !email || !phone || !dob || !coverletter) {
+      return res.status(400).send("All fields are required");
+    }
+    const mailOptions = {
+      from: process.env.EMAIL_ID,
+      to: process.env.EMAIL_ID,
+      subject: `New Application for ${results[0].title}`,
+      html: `
+            <p><strong> Name:</strong> ${fullname}</p>
+            <p><strong> Email:</strong> ${email}</p>
+            <p><strong> Phone:</strong> ${phone}</p>
+            <p><strong> Date of Birth:</strong> ${dob}</p>
+            <p><strong> Letter:</strong> ${coverletter}</p>
+            `,
+    };
+    console.log(mailOptions);
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        res.status(500).send("Error sending email");
+      } else {
+        res.status(200).render("applicationStatus");
+      }
+    });
   });
 });
 
