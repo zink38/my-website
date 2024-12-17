@@ -4,7 +4,7 @@ import bodyparser from "body-parser";
 import express from "express";
 import path from "path";
 import { fileURLToPath } from 'url'; 
-import { dirname, join } from 'path';
+import { dirname } from 'path';
 import mustacheExpress from "mustache-express";
 import mysql from "mysql2";
 
