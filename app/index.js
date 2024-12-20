@@ -9,7 +9,6 @@ import homeRouter from './home/router.js'; // Import the home router
 import jobsRouter from './jobs/router.js';
 //import notFound from './errors/not-found.js'; // Import the not-found middleware
 
-
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -22,14 +21,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..','public'))); // Ensure this line points to the correct path
 console.log(path.join(__dirname,'..', 'public'));
 
-
-
-
 // express mustache config
 app.set('views', [
   path.join(__dirname, 'home'), // Home templates
   path.join(__dirname, 'jobs'), // Jobs templates
-  path.join(__dirname, 'errors'), // Jobs templates
+  path.join(__dirname, 'errors'), // Error templates
 ]);
 console.log(app.get('views'));
 
@@ -41,6 +37,5 @@ app.use('/jobs', jobsRouter);
 
 // Error handling middleware
 //app.use(notFound);
-
 
 export default app;
