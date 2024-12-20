@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   db.query(query, (err, results) => {
     if (err) {
       console.error("Error fetching jobs:", err);
-      return res.status(500).send("An error occurred");
+      return res.status(500).send("An error occurred 9");
     }
     res.render("home", { jobs: results }); // Render the home.mustache template
   });
