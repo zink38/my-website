@@ -1,21 +1,20 @@
-import mysql from 'mysql2/promise'; // Using the promise-based client
+import mysql from 'mysql2'; // Using the promise-based client
 import config from './config.js'; // Import config without destructuring
 
-const pool = mysql.createPool({
+const connection = mysql.createConnection({
   ...config.db,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-  idleTimeout: 30000, // 30 seconds
 });
 
-pool.getConnection()
-  .then(connection => {
-    console.log('Connected to MySQL database');
-    connection.release(); // Release the connection back to the pool
-  })
-  .catch(err => {
+connection.connect(err => {
+  if (err) {
     console.error('Error connecting to MySQL:', err);
-  });
+    return;
+  }
+  console.log('Connected to MySQL database');
+  
+});
 
-export default pool;
+// Don't forget to close the connection when you're done
+// connection.end();
+
+export default connection;

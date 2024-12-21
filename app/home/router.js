@@ -1,19 +1,18 @@
 import express from 'express';
-import pool from '../db.js'; // Import your database connection
+import connection from '../db.js';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-  const query = "SELECT id, title, location, salary, posted FROM jobs";
-  try {
-    const connection = await pool.getConnection();
-    const [results] = await connection.query(query);
-    connection.release();
-    res.render("home", { jobs: results }); // Render the home.mustache template
-  } catch (err) {
-    console.error("Error fetching jobs:", err);
-    res.status(500).send("An error occurred while fetching jobs");
-  }
+router.get('/', (req, res, next) => {
+  const query = 'SELECT id, title, location, salary, posted FROM jobs';
+
+  connection.query(query, (err, results) => {
+    if (err) {
+      return next(err);
+    }
+    res.render('home', { jobs: results });
+  });
 });
 
 export default router;
+

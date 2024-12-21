@@ -1,5 +1,3 @@
 {
-    "ext":"js,html,css,png,jpg,svg,mustache,json",
-    "ignore": ["node_modules"]
- 
+    "ext":"js,html,css,png,jpg,svg,mustache,json"
 }

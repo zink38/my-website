@@ -1,6 +1,7 @@
 import express from "express";
 import nodemailer from "nodemailer";
-import pool from "../db.js";
+import connection from "../db.js";
+import errors from "../errors/errors.js";
 
 const router = express.Router();
 
@@ -15,70 +16,54 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// router.get("/", async (req, res) => {
-//   const query = "SELECT id, title, location, salary, posted FROM jobs";
-//   try {
-//     const connection = await pool.getConnection();
-//     const [results] = await connection.query(query);
-//     connection.release();
-//     res.render("index", { jobs: results });
-//   } catch (err) {
-//     console.error("Error fetching jobs:", err);
-//     res.status(500).send("An error occurred");
-//   }
-// });
-
-router.get("/:id", async (req, res) => {
+router.get("/:id", (req, res, next) => {
   const jobId = req.params.id;
   const query = "SELECT * FROM jobs WHERE id = ?";
-  try {
-    const connection = await pool.getConnection();
-    const [results] = await connection.query(query, [jobId]);
-    connection.release();
+  
+  connection.query(query, [jobId], (err, results) => {
+    if (err) {
+      return next(err);
+    }
     if (results.length === 0) {
-      return res.status(404).send("Job not found");
+      return next(errors.notFound);
     }
     res.render("job", { job: results[0] });
-  } catch (err) {
-    console.error("Error fetching job:", err);
-    res.status(500).send("An error occurred");
-  }
+  });
 });
 
-router.post("/add-job", async (req, res) => {
+router.post("/add-job", (req, res, next) => {
   const { title, location, salary, posted } = req.body;
   if (!title || !location || !salary || !posted) {
     return res.status(400).send("All fields are required");
   }
 
-  const query = "INSERT INTO jobs (title, location, salary, posted) VALUES (?, ?, ?, ?)";
-  const values = [title, location, salary, posted];
-  try {
-    const connection = await pool.getConnection();
-    await connection.query(query, values);
-    connection.release();
+  const query =
+    "INSERT INTO jobs (title, location, salary, posted) VALUES (?, ?, ?, ?)";
+
+  connection.query(query, [title, location, salary, posted], (err) => {
+    if (err) {
+      return next(err);
+    }
     res.send("Job added successfully");
-  } catch (err) {
-    console.error("Error inserting job:", err);
-    res.status(500).send("An error occurred");
-  }
+  });
 });
 
-router.post("/:id/apply", async (req, res) => {
+router.post("/:id/apply", (req, res, next) => {
   const { fullname, email, phone, dob, coverletter } = req.body;
   const jobId = req.params.id;
-  const query = "SELECT * FROM jobs WHERE id = ?";
 
-  if (!fullname || !email || !phone || !dob || !coverletter) {
+  if (!fullname || !email || !phone || !dob) {
     return res.status(400).send("All fields are required");
   }
 
-  try {
-    const connection = await pool.getConnection();
-    const [results] = await connection.query(query, [jobId]);
-    connection.release();
+  const jobQuery = "SELECT * FROM jobs WHERE id = ?";
+
+  connection.query(jobQuery, [jobId], (err, results) => {
+    if (err) {
+      return next(err);
+    }
     if (results.length === 0) {
-      return res.status(404).send("Job not found");
+      return next(errors.notFound);
     }
 
     const mailOptions = {
@@ -90,22 +75,17 @@ router.post("/:id/apply", async (req, res) => {
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Date of Birth:</strong> ${dob}</p>
-        <p><strong>Letter:</strong> ${coverletter}</p>
+        <p><strong>Cover Letter:</strong> ${coverletter}</p>
       `,
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error("Error sending email:", error);
-        res.status(500).send("Error sending email");
-      } else {
-        res.status(200).render("applicationStatus");
+    transporter.sendMail(mailOptions, (err) => {
+      if (err) {
+        return next(err);
       }
+      res.status(200).render("applicationStatus");
     });
-  } catch (err) {
-    console.error("Error fetching job:", err);
-    res.status(500).send("An error occurred");
-  }
+  });
 });
 
 export default router;
