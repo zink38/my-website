@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "npm install --include=dev && npm run build",
+  "buildCommand": "echo 'Running build process' && npm install --include=dev && npm run build",
   "outputDirectory": "dist",
   "builds": [
     {
