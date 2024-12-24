@@ -28,14 +28,14 @@ const PRODUCTION = process.env.NODE_ENV === "production";
 
 const config: Config = {
   express: {
-    port: parseInt(process.env.EXPRESS_PORT || "3000", 10),
+    port: process.env.EXPRESS_PORT || 3000,
   },
   db: {
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
     host: process.env.MYSQL_HOST,
     database: process.env.MYSQL_DB,
-    port: parseInt(process.env.MYSQL_PORT, 10)
+    port: process.env.MYSQL_PORT
   },
   email: {
     service: "gmail",
