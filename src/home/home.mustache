@@ -1,5 +1,5 @@
 <html lang="en" data-bs-theme="auto">
-{{> head}}
+  {{> head}}
   <body>
     <!-- <div class="skippy visually-hidden-focusable overflow-hidden">
             <div class="container-xl">
@@ -7,30 +7,28 @@
             </div>
         </div> -->
 
-    <header>
-      {{> navbar}}
+    {{> navbar}}
 
+    <div
+      class="container-fluid bg bd-masthead"
+      style="
+        background-image: url('images/grandCanyonPose.jpg');
+        background-color: rgba(0, 0, 0, 0.4);
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        background-blend-mode: darken;
+      "
+    >
       <div
-        class="container-fluid bg"
-        style="
-          background-image: url('images/grandCanyonPose.jpg');
-          background-color: rgba(0, 0, 0, 0.4);
-          background-size: cover;
-          background-position: center;
-          height: 100vh;
-          background-blend-mode: darken;
-        "
+        class="d-flex flex-column justify-content-center align-items-center h-100 text-center text-white"
       >
-        <div
-          class="d-flex flex-column justify-content-center align-items-center h-100 text-center text-white"
-        >
-          <h1 class="display-2">Keegan Churchill</h1>
-          <h2 class="display-6">
-            <b>Welcome to my webpage</b>
-          </h2>
-        </div>
+        <h1 class="display-2">Keegan Churchill</h1>
+        <h2 class="display-6">
+          <b>Welcome to my webpage</b>
+        </h2>
       </div>
-    </header>
+    </div>
 
     <main>
       <div class="container col-xxl-10 px-4 py-5">
@@ -578,6 +576,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="calc.js"></script>
+    <script type="module" src="/scripts/calc.js"></script>
   </body>
 </html>

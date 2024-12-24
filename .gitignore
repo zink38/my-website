@@ -1,7 +1,9 @@
+#additional ignores
+dist/
 .vscode/launch.json
-src/projects/demos/searchPathfinding/*
-src/projects/demos/searchConnectFour/*
+oldCode/
 
+#Git hub default gitignore for node
 # Logs
 logs
 *.log
@@ -50,7 +52,9 @@ jspm_packages/
 web_modules/
 
 # TypeScript cache
+
 *.tsbuildinfo
+
 
 # Optional npm cache directory
 .npm
