@@ -9,7 +9,8 @@
     "start": "node ./dist/server.js",
     "tsc": "tsc",
     "copy-views": "cpy \"src/**/*.mustache\" dist --parents",
-    "build": "npm run tsc && npm run copy-views"
+    "build": "npm run tsc && npm run copy-views",
+    "type-check": "tsc -p tsconfig.json --noEmit"
   },
   "keywords": [],
   "author": "Keegan Churchill",
