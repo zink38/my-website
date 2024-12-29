@@ -1,6 +1,6 @@
 /*!
  * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
- * Copyright 2011-2024 The Bootstrap Authors
+ * Copyright 2011-2023 The Bootstrap Authors
  * Licensed under the Creative Commons Attribution 3.0 Unported License.
  */
 
@@ -30,13 +30,13 @@
   setTheme(getPreferredTheme())
 
   const showActiveTheme = (theme, focus = false) => {
-    const themeSwitcher = document.querySelector('#kc-themes')
+    const themeSwitcher = document.querySelector('#bd-theme')
 
     if (!themeSwitcher) {
       return
     }
 
-    const themeSwitcherText = document.querySelector('#kc-themes-text')
+    const themeSwitcherText = document.querySelector('#bd-theme-text')
     const activeThemeIcon = document.querySelector('.theme-icon-active use')
     const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
     const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')

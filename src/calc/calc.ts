@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const display = document.getElementById("calc-display") as HTMLInputElement;
   const entry = document.getElementById("calc-entry") as HTMLInputElement;
   const answer = document.getElementById("calc-answer") as HTMLInputElement;
-  const buttons = document.getElementsByClassName("btn");
+  const buttons = document.getElementsByClassName("calc-btn");
   let openBracketCount = 0;
   let rightBracket = false;
 

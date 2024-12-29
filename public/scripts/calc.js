@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const display = document.getElementById("calc-display");
     const entry = document.getElementById("calc-entry");
     const answer = document.getElementById("calc-answer");
-    const buttons = document.getElementsByClassName("btn");
+    const buttons = document.getElementsByClassName("calc-btn");
     let openBracketCount = 0;
     let rightBracket = false;
     for (let i = 0; i < buttons.length; i++) {
