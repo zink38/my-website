@@ -21,7 +21,7 @@
       "
     >
       <div
-        class="d-flex flex-column justify-content-center align-items-center h-100 text-center "
+        class="d-flex flex-column justify-content-center align-items-center h-100 text-center"
       >
         <h1 class="display-2 text-white">Keegan Churchill</h1>
         <h2 class="display-6 text-white">
@@ -451,22 +451,21 @@
 
       <div class="container col-xxl-10 py-5 px-4">
         <h2 class="display-5 fw-bold text-body-emphasis lh-1 mb-5">
-          Submit Your Application
+          Contact Me
         </h2>
         <form
           id="application-form"
           class="col-lg-8 offset-lg-2"
-          action="https://formbold.com/s/9BAPd"
+          action="/contact"
           method="POST"
-          enctype="multipart/form-data"
         >
           <div class="mb-3 col-sm-6">
-            <label for="inputName" class="form-label">Full Name</label>
+            <label for="inputName" class="form-label">Name</label>
             <input
               type="text"
               class="form-control"
               id="inputName"
-              name="Name"
+              name="name"
               placeholder="Jane Doe"
               required
             />
@@ -477,70 +476,36 @@
               type="email"
               class="form-control"
               id="inputEmail"
-              name="Email"
-              aria-describedby="emailHelp"
+              name="email"
+              placeholder="jane@doe.com"
+              required
             />
-            <div id="emailHelp" class="form-text">
-              We'll never share your email with anyone else.
-            </div>
+
           </div>
           <div class="mb-3 col-sm-6">
             <label for="inputPhone" class="form-label">Phone</label>
+            <span class="form-text px-2">
+              (Optional)
+            </span>
             <input
               type="tel"
               class="form-control"
               id="inputPhone"
-              name="Phone"
+              name="phone"
               placeholder="+1 234 567 8901"
-              required
-            />
-          </div>
-          <div class="mb-3 col-sm-6">
-            <label for="inputDoB" class="form-label">Date Of Birth</label>
-            <input
-              type="date"
-              class="form-control"
-              id="inputDoB"
-              name="Date of Birth"
-              required
-            />
-          </div>
-          <div class="mb-3 col-sm-6">
-            <label for="inputPosition" class="form-label"
-              >Position Applying</label
-            >
-            <select
-              id="inputPosition"
-              class="form-select"
-              name="Position Applied"
-              required
-            >
-              <option value="">Select Position</option>
-              <option value="frontend">Frontend Developer</option>
-              <option value="fullstack">Full Stack Developer</option>
-              <option value="data scientist">Data Scientist</option>
-              <option value="ml engineer">Machine Learning Enginerr</option>
-            </select>
-          </div>
-          <div class="mb-3 col-sm-6">
-            <label for="formFileMultiple" class="form-label"
-              >Upload Resume and/or Cover Letter</label
-            >
-            <input
-              class="form-control"
-              type="file"
-              id="formFileMultiple"
-              name="File"
             />
           </div>
           <div class="mb-3">
-            <label for="inputCoverletter">Cover Letter</label><br />
+            <label for="inputMessage">Message</label>
+            <span class="form-text px-2">
+              (Optional)
+            </span>
             <textarea
-              id="inputCoverletter"
+              id="inputMessage"
               class="form-control"
-              name="Coverletter"
+              name="message"
               rows="5"
-              placeholder="Explain what makes you suitable for the job.."
+              placeholder="Contact Me"
             ></textarea>
           </div>
           <div class="mb-3 col-sm-6 form-check">
@@ -552,7 +517,7 @@
               required
             />
             <label for="inputTerms" class="form-check-label">
-              I agree to the terms and conditions
+              I agree to send the information in this form to Keegan Churchill
             </label>
           </div>
           <div class="mb-3 col-sm-6">

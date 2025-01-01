@@ -1,2 +1,8 @@
-
+$white:    #fff !default;
+$black:    #000 !default;
+$carousel-control-color:             $black;
+$carousel-indicator-active-bg:       $black;
+$carousel-caption-color:             $black;
+$carousel-dark-indicator-active-bg:  $white;
+$carousel-dark-caption-color:        $white;
 @import "node_modules/bootstrap/scss/bootstrap";
