@@ -4,10 +4,10 @@ import { JobController } from './job-controller.js';
 
 const jobsRouter = Router();
 
-// jobsRouter.get('/', JobController.getAllJobs);
+jobsRouter.get('/', JobController.getJobsPage);
 jobsRouter.get('/:id', JobController.getJobApplicationById);
 // jobsRouter.get('/:id', JobController.getJobApplicationById);
-//jobsRouter.post('/jobs', JobController.createJob);
+jobsRouter.post('/create', JobController.createJob);
 //jobsRouter.put('/jobs/:id', JobController.updateJob);
 //jobsRouter.delete('/jobs/:id', JobController.deleteJob);
 jobsRouter.post('/:id/apply', JobController.applyForJob);

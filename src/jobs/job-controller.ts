@@ -16,10 +16,10 @@ const transporter = nodemailer.createTransport({
 
 export class JobController {
   // Methods for job management
-  static async getAllJobs(req: Request, res: Response) {
+  static async getJobsPage(req: Request, res: Response) {
     try {
       const jobs = await JobModel.getAllJobs();
-      res.json(jobs);
+      res.render("jobs", { jobs });
     } catch (error) {
       res.status(500).send("Server Error");
     }
@@ -32,7 +32,7 @@ export class JobController {
       if (!job.length) {
         res.status(404).send("job not found");
       } else {
-        res.render("job", { job: job[0] });
+        res.render("job-application", { job: job[0] });
       }
     } catch (error) {
       res.status(500).send("Server Error");
@@ -40,10 +40,18 @@ export class JobController {
   }
 
   static async createJob(req: Request, res: Response) {
+    console.log(req.body);
     try {
-      const newJob = await JobModel.createJob(req.body);
+      const { title, salaryCurrency, salaryAmount, locationCity, locationCountry } = req.body;
+        const location = `${locationCity}, ${locationCountry}`;
+        const salary = `${salaryCurrency} ${salaryAmount}`;
+        const posted = new Date().toISOString();
+  
+
+      const newJob = await JobModel.createJob(title, location, salary, posted);
       res.status(201).json(newJob);
     } catch (error) {
+      console.log(error);
       res.status(500).send("Server Error");
     }
   }
@@ -97,7 +105,7 @@ export class JobController {
               next(err);
             } else {
               console.log("here");
-              res.status(200).render("application-status");
+              res.status(200).render("job-application-status");
             }
           });
         }
