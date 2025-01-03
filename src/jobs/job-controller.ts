@@ -42,14 +42,18 @@ export class JobController {
   static async createJob(req: Request, res: Response) {
     console.log(req.body);
     try {
-      const { title, salaryCurrency, salaryAmount, locationCity, locationCountry } = req.body;
+      const jobs = await JobModel.getAllJobs();
+      if(jobs.length < 10) {
+        const { title, salaryCurrency, salaryAmount, locationCity, locationCountry } = req.body;
         const location = `${locationCity}, ${locationCountry}`;
         const salary = `${salaryCurrency} ${salaryAmount}`;
         const posted = new Date().toISOString();
   
 
       const newJob = await JobModel.createJob(title, location, salary, posted);
-      res.status(201).json(newJob);
+      }
+
+      res.redirect('/jobs');
     } catch (error) {
       console.log(error);
       res.status(500).send("Server Error");

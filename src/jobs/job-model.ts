@@ -29,6 +29,6 @@ export class JobModel {
     }
 
     static async deleteJob(id: number) {
-        return ModifyQuery(`DELETE FROM jobs WHERE id = ${id};`);
+        return ModifyQuery(`DELETE FROM jobs WHERE id =?;`, [id]);
     }
 }

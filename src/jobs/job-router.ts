@@ -6,6 +6,7 @@ const jobsRouter = Router();
 
 jobsRouter.get('/', JobController.getJobsPage);
 jobsRouter.get('/:id', JobController.getJobApplicationById);
+jobsRouter.delete('/:id', JobController.deleteJob);
 // jobsRouter.get('/:id', JobController.getJobApplicationById);
 jobsRouter.post('/create', JobController.createJob);
 //jobsRouter.put('/jobs/:id', JobController.updateJob);

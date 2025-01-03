@@ -12,16 +12,23 @@
     <main>
       <div class="container px-4 mt-5">
         <h2 class="text-center mb-4">CRUDdy Jobs</h2>
+        <div class="col-lg-6">
+          <h5>To perserve FREE sql database SQL JOBS TABLE is capped at 10 entries, press 'X' to delete entries</h5>
+        </div>
         <div class="d-md-none">
           {{#jobs}}
           <div class="card mb-3">
-
             <div class="card-body">
               <h5 class="card-title d-flex justify-content-between">
                 <a href="/jobs/{{ id }}">{{ title }}</a>
                 <span class="justify-content-end">
-                  <button type="button" class="btn btn-primary">
+                  <button
+                    onclick="deleteJob('{{ id }}')"
+                    type="button"
+                    class="btn btn-primary"
+                  >
                     <svg class="navbar-nav-svg bi">
+                      <title>Delete</title>
                       <use href="#lg-X"></use>
                     </svg>
                   </button>
@@ -48,6 +55,7 @@
               <th>Location</th>
               <th>Salary</th>
               <th>Posted On</th>
+              <th>Options</th>
             </tr>
             {{#jobs}}
             <tr>
@@ -57,6 +65,18 @@
               <td>{{ location }}</td>
               <td>{{ salary }}</td>
               <td>{{ posted }}</td>
+              <td>
+                <button
+                  onclick="deleteJob('{{ id }}')"
+                  type="button"
+                  class="btn btn-primary"
+                >
+                  <svg class="navbar-nav-svg bi">
+                    <title>Delete</title>
+                    <use href="#lg-X"></use>
+                  </svg>
+                </button>
+              </td>
             </tr>
             {{/jobs}}
           </table>
@@ -73,7 +93,9 @@
               <option value="Frontend Developer">Frontend Developer</option>
               <option value="Full Stack Developer">Full Stack Developer</option>
               <option value="Data Scientist">Data Scientist</option>
-              <option value="Machine Learning Engineer">Machine Learning Engineer</option>
+              <option value="Machine Learning Engineer">
+                Machine Learning Engineer
+              </option>
             </select>
           </div>
 
@@ -81,21 +103,40 @@
             <label for="inputSalary" class="form-label">Job Salary</label>
             <div class="input-group">
               <span class="input-group-text col-4">
-                <select id="inputCurrency" class="form-select " name="salaryCurrency" required>
-                <option value="">Currency</option>
-                <option value="CAD">CAD</option>
-                <option value="USD">USD</option>
-                <option value="KRW">KRW</option>
-                <option value="JPY">JPY</option>
-              </select>
-            </span>
-            <input id="inputSalary" name="salaryAmount" type="number" class="form-control" placeholder="0" step="5000" aria-label="Salary input with currency select" required>
+                <select
+                  id="inputCurrency"
+                  class="form-select"
+                  name="salaryCurrency"
+                  required
+                >
+                  <option value="">Currency</option>
+                  <option value="CAD">CAD</option>
+                  <option value="USD">USD</option>
+                  <option value="KRW">KRW</option>
+                  <option value="JPY">JPY</option>
+                </select>
+              </span>
+              <input
+                id="inputSalary"
+                name="salaryAmount"
+                type="number"
+                class="form-control"
+                placeholder="0"
+                step="5000"
+                aria-label="Salary input with currency select"
+                required
+              />
             </div>
           </div>
           <div class="mb-3 col-sm-6 input-group">
             <label for="inputCity" class="form-label">Job Location</label>
             <div class="input-group">
-                <select id="inputCity" class="form-select " name="locationCity" required>
+              <select
+                id="inputCity"
+                class="form-select"
+                name="locationCity"
+                required
+              >
                 <option value="">City</option>
                 <option value="St. John's">St. John's</option>
                 <option value="San Francisco">San Francisco</option>
@@ -104,7 +145,12 @@
                 <option value="Remote">Remote</option>
               </select>
               <span class="input-group-text">,</span>
-              <select id="inputCountry" class="form-select " name="locationCountry" required>
+              <select
+                id="inputCountry"
+                class="form-select"
+                name="locationCountry"
+                required
+              >
                 <option value="">Country</option>
                 <option value="Canada">Canada</option>
                 <option value="U.S.A.">U.S.A</option>
@@ -127,5 +173,27 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <!-- index.mustache -->
+
+    <script>
+      function deleteJob(jobId) {
+        console.log("delete");
+        console.log(jobId);
+        fetch(`/jobs/${jobId}`, {
+          method: "DELETE",
+        })
+          .then((response) => {
+            if (response.status === 204) {
+              // No Content
+              alert("Item deleted successfully");
+              location.reload(); // Optionally, refresh the item list or redirect
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("Failed to delete item due to a network error");
+          });
+      }
+    </script>
   </body>
 </html>
