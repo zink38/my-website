@@ -165,9 +165,16 @@
     />
   </symbol>
   <symbol id="lg-X" viewBox="0 0 16 16">
-    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+    <path
+      d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+    />
   </symbol>
-
+  <symbol id="resume" viewBox="0 0 16 16">
+    <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+    <path
+      d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5z"
+    />
+  </symbol>
 </svg>
 
 <!-- <nav
@@ -510,6 +517,47 @@
               </svg>
               <small class="d-lg-none ms-2">Facebook</small>
             </a>
+          </li>
+
+          <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+            <hr class="d-lg-none my-2 text-white-50" />
+          </li>
+
+          <li class="nav-item dropdown">
+            <button
+              class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              data-bs-display="static"
+              aria-label="View CV"
+            >
+              <svg class="bi my-1">
+                <use href="#resume"></use>
+              </svg>
+              <span class="d-lg-none ms-2">CV</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><h6 class="dropdown-header">CV Links</h6></li>
+              <li>
+                <a
+                  class="dropdown-item d-flex align-items-center"
+                  href="/pdfs/KeeganChurchill_ComprehensiveCV.pdf"
+                >
+                  View CV
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item d-flex align-items-center"
+                  href="/pdfs/KeeganChurchill_ComprehensiveCV.pdf"
+                  download
+                >
+                  Download CV
+                </a>
+              </li>
+            </ul>
           </li>
 
           <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
