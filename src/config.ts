@@ -28,14 +28,14 @@ const PRODUCTION = process.env.NODE_ENV === "production";
 
 const config: Config = {
   express: {
-    port: process.env.EXPRESS_PORT || 3000,
+    port: parseInt(process.env.EXPRESS_PORT || '3000', 10) ,
   },
   db: {
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    host: process.env.MYSQL_HOST,
-    database: process.env.MYSQL_DB,
-    port: process.env.MYSQL_PORT
+    user: process.env.MYSQL_USER || "default",
+    password: process.env.MYSQL_PASSWORD || "default",
+    host: process.env.MYSQL_HOST || "default",
+    database: process.env.MYSQL_DB || "default",
+    port: parseInt(process.env.MYSQL_PORT || '3000', 10)
   },
   email: {
     service: "gmail",
@@ -43,8 +43,8 @@ const config: Config = {
     port: 587,
     secure: false,
     auth: {
-      user: process.env.EMAIL_ID,
-      pass: process.env.EMAIL_PASSWORD,
+      user: process.env.EMAIL_ID || "default",
+      pass: process.env.EMAIL_PASSWORD || "default",
     },
   },
 };
