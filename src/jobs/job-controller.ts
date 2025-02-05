@@ -108,7 +108,6 @@ export class JobController {
             if (err) {
               next(err);
             } else {
-              console.log("here");
               res.status(200).render("job-application-status");
             }
           });
