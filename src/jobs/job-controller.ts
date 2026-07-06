@@ -27,7 +27,7 @@ export class JobController {
 
   static async getJobApplicationById(req: Request, res: Response) {
     try {
-      const job = await JobModel.getJobById(parseInt(req.params.id));
+      const job = await JobModel.getJobById(parseInt(req.params.id as string, 10));
 
       if (!job.length) {
         res.status(404).send("job not found");
@@ -62,7 +62,7 @@ export class JobController {
 
   static async updateJob(req: Request, res: Response) {
     try {
-      await JobModel.updateJob(parseInt(req.params.id), req.body);
+      await JobModel.updateJob(parseInt(req.params.id as string, 10), req.body);
       res.status(204).send();
     } catch (error) {
       res.status(500).send("Server Error");
@@ -71,7 +71,7 @@ export class JobController {
 
   static async deleteJob(req: Request, res: Response) {
     try {
-      await JobModel.deleteJob(parseInt(req.params.id));
+      await JobModel.deleteJob(parseInt(req.params.id as string, 10));
       res.status(204).send();
     } catch (error) {
       res.status(500).send("Server Error");
@@ -81,7 +81,7 @@ export class JobController {
   // Method for handling job applications
   static async applyForJob(req: Request, res: Response, next: NextFunction) {
     const { fullname, email, phone, dob, coverletter } = req.body;
-    const jobId = parseInt(req.params.id);
+    const jobId = parseInt(req.params.id as string, 10);
 
     if (!fullname || !email || !phone || !dob) {
       res.status(400).send("All fields are required");
